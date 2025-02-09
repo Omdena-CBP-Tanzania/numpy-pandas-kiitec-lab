@@ -7,7 +7,7 @@ def create_1d_array():
     Returns:
         numpy.ndarray: 1D array
     """
-    pass
+    return np.array([1,2,3,4,5])
 
 def create_2d_array():
     """
@@ -39,7 +39,7 @@ def read_csv_file(filepath):
     Returns:
         pandas.DataFrame: Loaded dataframe
     """
-    pass
+    return pd.read_csv(filepath)
 
 def handle_missing_values(df):
     """
@@ -64,7 +64,8 @@ def select_data(df):
     Returns:
         pandas.DataFrame: Selected data
     """
-    pass
+    selected_df=df.loc[:1,['Name', 'Age','Salary']]
+    return selected_df
 
 def rename_columns(df):
     """
@@ -72,4 +73,5 @@ def rename_columns(df):
     Returns:
         pandas.DataFrame: DataFrame with renamed columns
     """
-    pass
+    df_renamed=df.rename(columns={'Name':'Full_name','Age':'Years','Salary':'Income'})
+    return df_renamed
