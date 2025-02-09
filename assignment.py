@@ -15,7 +15,7 @@ def create_2d_array():
     Returns:
         numpy.ndarray: 2D array
     """
-    pass
+    return np.arange(1, 10).reshape(3, 3)
 
 def array_operations(arr):
     """
@@ -26,7 +26,10 @@ def array_operations(arr):
     Returns:
         tuple: (mean, std_dev, max_value)
     """
-    pass
+    mean = np.mean(arr)
+    std_dev = np.std(arr)
+    max_value = np.max(arr)
+    return mean, std_dev, max_value
 
 def read_csv_file(filepath):
     """
@@ -46,7 +49,14 @@ def handle_missing_values(df):
     Returns:
         pandas.DataFrame: Cleaned dataframe
     """
-    pass
+    print("Number of missing values:")
+    print(df.isna().sum())
+
+    df['Age'].fillna(df['Age'].mean(), inplace=True)
+
+    df['Salary'].fillna(df['Salary'].median(), inplace=True)
+
+    return df
 
 def select_data(df):
     """
